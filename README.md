@@ -19,7 +19,6 @@ For further information regarding the push functionalities of sipgate.io please 
 
 ## Prerequisites
 - JDK 8
-- Gradle
 
 ## Enabling sipgate.io for your sipgate account
 In order to use sipgate.io, you need to book the corresponding package in your sipgate account. The most basic package is the free **sipgate.io S** package.

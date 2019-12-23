@@ -6,12 +6,8 @@ repositories {
     jcenter()
 }
 
-run {
-    standardInput = System.in
-}
-
 group = 'de.sipgate.io.example'
 version = '1.0-SNAPSHOT'
 sourceCompatibility = '1.8'
 
-mainClassName = 'sipgateio.incomingcall.java.App'
+mainClassName = 'sipgateio.incomingcall.App'
