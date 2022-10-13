@@ -2,6 +2,8 @@ package sipgateio.incomingcall;
 
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
+import io.github.cdimascio.dotenv.Dotenv;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,8 +16,11 @@ import java.util.Map;
 
 public class App {
 
+	private static int port;
+
 	public static void main(String[] args) throws IOException {
-		SimpleHttpServer simpleHttpServer = new SimpleHttpServer(8080);
+		loadConfiguration();
+		SimpleHttpServer simpleHttpServer = new SimpleHttpServer(port);
 		simpleHttpServer.addPostHandler("/", App::handlePost);
 		simpleHttpServer.start();
 	}
@@ -65,5 +70,16 @@ public class App {
 		}
 
 		return keyValuePairs;
+	}
+
+	private static void loadConfiguration() {
+		Dotenv dotenv = Dotenv.load();
+		String portString = dotenv.get("WEBHOOK_PORT");
+		try {
+			port = Integer.parseInt(portString);
+		} catch (NumberFormatException e) {
+			System.err.println("Could not parse " + portString + " to int");
+			System.exit(5);
+		}
 	}
 }

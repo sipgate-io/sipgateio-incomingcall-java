@@ -86,6 +86,9 @@ $ ssh -R 80:localhost:8080 ssh.localhost.run
 If you run this example on a server which can already be reached from the internet, you do not need the forwarding.
 In that case, the webhook URL needs to be adjusted accordingly.
 
+## Configuration
+Create the `.env` by copying the [`.env.example`](.env.example) and set the value according to the comment above. For more information read [Configure webhooks for sipgate.io](#configure-webhooks-for-sipgateio) and [Making your computer accessible from the internet](#making-your-computer-accessible-from-the-internet).
+
 ## Execution
 Navigate to the project's root directory.
 
